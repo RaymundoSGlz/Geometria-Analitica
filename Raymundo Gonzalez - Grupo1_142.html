@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html>
+
+<meta charset="utf-8";>
+<link rel="stylesheet" href="estilos.css" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="alternate" title="Pozolería RSS" type="application/rss+xml" href="/feed.rss" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<style>
+p {font-size: 120%;}
+</style>
+
+<title>Geometría Análitica</title> <link rel="shortcut icon" href="file:///C:/Users/76172/Pictures/logo.png"/>
+
+<script type="text/javascrip" src="MathJax/MathJax.js"></script>
+<script type= "text/javascript"
+src= "http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" >
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  "HTML-CSS": { linebreaks: { automatic: true } },
+  SVG: { linebreaks: { automatic: true } },
+   MathML: {
+     extensions: ["mml3.js"]
+  }
+});
+MathJax.Hub.Config({
+    jax: ["input/TeX","output/HTML-CSS"],
+    displayAlign: "left"
+});
+
+
+
+MathJax.Hub.Config({
+"HTML-CSS": {
+  imageFont: null
+}
+});
+
+</script>
+
+<!-- Tell the browser to be responsive to screen width -->
+<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+<!-- Bootstrap 3.3.5 -->
+<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+<!-- Ionicons -->
+<link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+<!-- Theme style -->
+<link rel="stylesheet" href="dist/css/AdminLTE.min.css">
+<!-- AdminLTE Skins. Choose a skin from the css/skins
+     folder instead of downloading all of them to reduce the load. -->
+<link rel="stylesheet" href="dist/css/skins/_all-skins.min.css">
+<!-- iCheck -->
+<link rel="stylesheet" href="plugins/iCheck/flat/blue.css">
+<!-- Morris chart -->
+<link rel="stylesheet" href="plugins/morris/morris.css">
+<!-- jvectormap -->
+<link rel="stylesheet" href="plugins/jvectormap/jquery-jvectormap-1.2.2.css">
+<!-- Date Picker -->
+<link rel="stylesheet" href="plugins/datepicker/datepicker3.css">
+<!-- Daterange picker -->
+<link rel="stylesheet" href="plugins/daterangepicker/daterangepicker-bs3.css">
+<!-- bootstrap wysihtml5 - text editor -->
+<link rel="stylesheet" href="plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
+
+<link rel="stylesheet" href="bootstrap/css/css/estilos.css">
+
+<!-- WIRIS EDITOR-->
+
+<script src="http://www.wiris.net/demo/editor/editor"></script>
+<script>
+    var editor;
+
+    window.onload = function () {
+      editor = com.wiris.jsEditor.JsEditor.newInstance({'language': 'en', 'toolbar': '<toolbar ref="quizzes"/>'});
+      editor.insertInto(document.getElementById('editor'));
+
+    }
+
+    function insertar(){
+       var valor = editor.getMathML();
+        $('#formula').html(valor);
+        var x= 3*2;
+       $('#formula').html("\\[ +\\frac{-b\\pm\\sqrt{b^"+x+"-4ac}}{2a} \\]");
+       $('#formula').html("\\[ +\\frac{2}{3}ax^2 \\]");
+
+           MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
+
+        console.log(valor);
+      console.log($('#formula').html());
+    }
+
+  function obtener(){
+      var v = $('#formula').html()
+       editor.setMathML(v);
+       console.log(v);
+  }
+
+</script>
+<!-- Graficos-->
+
+
+<link rel="stylesheet" type="text/css" href="JSXGraph/jsxgraph.css" />
+<script type="text/javascript" src="JSXGraph/jsxgraphcore.js"></script>
+<link rel="stylesheet" type="text/css" href="http://jsxgraph.uni-bayreuth.de/distrib/jsxgraph.css" />
+<script type="text/javascript" src="http://jsxgraph.uni-bayreuth.de/distrib/jsxgraphcore.js"></script>
+
+
+<title>Geometría Analítica</title>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+<script type="text/javascript" async
+src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body><font color="blue">
+
+
+  <div style="background: none repeat scroll 0 0 	#98FB98;
+    border: 1px solid #A67D3D;
+    border-radius: 6px 6px 6px 6px;
+    top:0px;
+    left: auto;
+    margin-left: left;
+    padding: 1px 0px 1px 1px;
+    position: fixed;
+    text-align: center;
+    width: 100%;
+    height:150px;
+    z-index: 1;">
+    <h3 ><font color="blue">Problemas de Geometría Analítica</font><br> <font color= "black"> Grupo1_142</font></br> </h3>
+    <h4><font color="black"><marquee> Raymundo Silvestre Gonzalez Contreras </marquee></h4>
+    <h5>
+  <button  type = "button" onclick="vaciar(1)"><font color= "blue"><marquee> Ejemplos resueltos </marquee></font></button>
+    </h5>
+
+
+
+  </div>
+
+  <svg height="150" width="500">
+  <line x1="0" y1="0" x2="0" y2="70" style="stroke:rgb(255,0,0);stroke-width:2" />
+  Sorry, your browser does not support inline SVG.
+  </svg>
+
+  <Div>
+
+
+</head>
+
+<body><font color="blue">
+<style>
+      table, th, td { border: 1px solid blue;
+                      border-collapse: collapse;}
+      th,td { padding: 5px; }
+
+      table {
+             width: 20%;}
+             th{heigth: 50px;}
+
+      </style>
+
+        <p ></p>
+
+        <table  style = "width: 100%" border ="2" cellspacing = "2" align="lefth">
+          <col width="50%">
+          <col width="50%">
+         <tr>
+            <td colspan="2"><p>Dibujar una figura.<br><br>Hallar la ecuación de la recta que pasa por el punto (a,b) y por la intersección de las rectas \[ \frac{x}{a}+\frac{y}{b}=1, \frac{x}{b}+\frac{y}{a} = 1. \]
+
+            <br><br>
+            <br><br></p></td>
+         </tr>
+         <tr>
+            <td colspan="2"><p align="lefth"  style="font:italic bold 20px Georgia,serif; color: black">Herramienta<br><br><p>TEOREMA<br>  La recta que pasa por dos puntos dados P1 (x1 , y1) y P2 (x2 , y2 ) tiene por ecuación<br>   \[y - y_{1} = \frac{y_{2}-y_{1}}{x_{2}-x_{1}}(x-x_{1}) \]</p></p>
+
+           </td>
+         </tr>
+         <tr>
+            <td colspan="2" ><p id="SOL1" style="font-size:90%; color: red" align="center">Click a ejemplos resueltos</p></td>
+         </tr>
+
+         <tr>
+            <td colspan="2" ><p id="SOL2" style="font-size:90%; color: brown" align="center">Click a ejemplos resueltos</p></td>
+         </tr>
+         <tr>
+
+         </tr>
+
+</table>
+
+
+<div id="jxgbox" class="jxgbox" style="width:500px; height:500px;"></div>
+
+<script type="text/javascript">
+
+var board = JXG.JSXGraph.initBoard('jxgbox', {originX: 250, originY: 450, unitX: 200, unitY: 200, axis:true});
+var dataArr = [4, 1.2, 3, NaN, 5, 4, 1.54, function () { return 4; }];
+
+
+
+        function vaciar(x)  //
+        {
+//alert("ooo")
+            if (x == 1) { //Módulo2
+//alert("entre a funcion");
+                //var M1 = document.getElementById("nivel").value;
+                var M1=1
+                var C = Grupo1_142(M1);
+//alert("C    "+C)
+            }
+        }
+
+var Sol = [];
+
+function Grupo1_142(M1){
+
+
+
+
+                var   A,B,C,p,q,d, r,s,t, u, v, w, m,W,x,x1,x2, pas1,pas2,pas3,pas;
+                var  P = [];
+                  W = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+                  a = Math.floor(3*(Math.random() * 10)-15);
+                  b = Math.floor(3*(Math.random() * 10)-15);
+                  if (a<=0) {
+                  a = (a-1)*-1
+                  }
+                  if (b<=0) {
+                  b = (b-1)*-1
+                  }
+                  if (a==b) {
+                  a = a+2
+                  }
+                  aa = a*a
+                  aaa = aa*a
+                  aab = aa*b
+                  bb = b*b
+                  bbb = bb*b
+                  abb = a*bb
+                  s1 = (abb-aab)/(bb-aa)
+                  s1 = Math.round(s1 * 100)/100
+                  s2 = (s1*a)/b
+                  s2 = Math.round(s2 * 100)/100
+                  s3 = a-s2
+                  s3 = Math.round(s3 * 100)/100
+                  s4 = s1-b
+                  s4 = Math.round(s4 * 100)/100
+                  s5 = s3-a
+                  s5 = Math.round(s5 * 100)/100
+                  s6 = s5*b
+                  s6 = Math.round(s6 * 100)/100
+                  s7 = s4*a
+                  s7 = Math.round(s7 * 100)/100
+
+                  pas = "$$ Solución \\ general $$"
+                  pas0 = "$$ Sean \\ las \\ ecuaciones \\ (1) \\ \\frac{x}{a} + \\frac{y}{b} = 1 \\ ,\\ (2) \\ \\frac{x}{b} + \\frac{y}{a} = 1 \\ y \\ P(a,b) $$"
+                  pas1 = "$$ Primero \\ hallemos \\ el \\ punto \\ de \\ interseccion \\ de \\ (1) \\ con \\ (2) $$"
+                  pas2 = "$$ Para \\ ello \\ despejemos \\ X \\ de \\ (1)\\ : \\ \\frac{x}{a} = 1 - \\frac{y}{b} \\\\ (3) : \\ X = a - \\frac{ay}{b} \\\\ ahora \\ sustituyamos \\ en \\ (2) $$"
+                  pas3 = "$$ \\frac{a - \\frac{ay}{b}}{b} + \\frac{y}{a} = 1 \\\\ \\frac{y}{a} - \\frac{ay}{b^2} = 1 - \\frac{a}{b} \\\\ Y = \\frac{ab^2 - a^2 b}{b^2 - a^2} \\ sustituyamos \\ este \\ valor \\ en \\ (3) $$"
+                  pas4 = "$$ X = a - \\frac{a(\\frac{ab^2 - a^2 b}{b^2 - a^2})}{b} \\\\ X = a - \\frac{a^2 b - a^3}{b^2 - a^2} \\\\ Así \\ el \\ punto \\ de \\ interseción \\ es \\ Q(a - \\frac{a^2 b - a^3}{b^2 - a^2} , \\frac{ab^2 - a^2 b}{b^2 - a^2}) $$"
+                  pas5 = "$$ Ahora \\ utilicemos \\ el \\ teorema \\ para \\ encontrar \\ la \\ ecuacion \\\\ Y - b = (\\frac{\\frac{ab^2 - a^2 b}{b^2 - a^2} - b}{a - \\frac{a^2 b - a^3}{b^2 - a^2} - a})(X - a)  $$"
+                  pas6 = "$$ Y - b = (\\frac{ab^2 - b^3}{- a^2 b + a^3})(X - a) \\\\ la \\ ecuación \\ buscada \\ es : \\\\ (- a^2 b + a^3)Y - b(- a^2 b + a^3) = (ab^2 - b^3)X - a(ab^2 - b^3)   $$"
+                Sol[1] = pas+pas0+pas1+pas2+pas3+pas4+pas5+pas6
+
+                pas = "$$ Solución \\ particular $$"
+                pas0 = "$$ Sean \\ las \\ ecuaciones \\ (1) \\ \\frac{x}{"+a+"} + \\frac{y}{"+b+"} = 1 \\ ,\\ (2) \\ \\frac{x}{"+b+"} + \\frac{y}{"+a+"} = 1 \\ y \\ P("+a+","+b+") $$"
+                pas1 = "$$ Primero \\ hallemos \\ el \\ punto \\ de \\ interseccion \\ de \\ (1) \\ con \\ (2) $$"
+                pas2 = "$$ Para \\ ello \\ despejemos \\ X \\ de \\ (1)\\ : \\ \\frac{x}{"+a+"} = 1 - \\frac{y}{"+b+"} \\\\ (3) : \\ X = "+a+" - \\frac{"+a+"y}{"+b+"} \\\\ ahora \\ sustituyamos \\ en \\ (2) $$"
+                pas3 = "$$ \\frac{"+a+" - \\frac{"+a+"y}{"+b+"}}{"+b+"} + \\frac{y}{"+a+"} = 1 \\\\ \\frac{y}{"+a+"} - \\frac{"+a+"y}{"+bb+"} = 1 - \\frac{"+a+"}{"+b+"} \\\\ Y = \\frac{"+abb+" - "+aab+"}{"+bb+" - "+aa+"}\\ = "+s1+" \\ sustituyamos \\ este \\ valor \\ en \\ (3) $$"
+                pas4 = "$$ X = "+a+" - \\frac{"+a+"("+s1+")}{"+b+"} \\\\ X = "+a+" - "+s2+" \\ = "+s3+" \\\\ Así \\ el \\ punto \\ de \\ interseción \\ es \\ Q("+s3+" , "+s1+") $$"
+                pas5 = "$$ Ahora \\ utilicemos \\ el \\ teorema \\ para \\ encontrar \\ la \\ ecuacion \\\\ Y - "+b+" = (\\frac{"+s1+" - "+b+"}{"+s3+" - "+a+"})(X - "+a+")  $$"
+                pas6 = "$$ Y - b = (\\frac{"+s4+"}{"+s5+"})(X - a) \\\\ la \\ ecuación \\ buscada \\ es : \\\\ "+s5+"Y - "+s6+" = "+s4+"X - "+s7+"   $$"
+              Sol[2] = pas+pas0+pas1+pas2+pas3+pas4+pas5+pas6
+
+                document.getElementById("SOL1").innerHTML = Sol[1];
+                document.getElementById("SOL2").innerHTML = Sol[2];
+                //document.getElementById("SOL3").innerHTML = Sol[3];
+                //document.getElementById("SOL4").innerHTML = Sol[4];
+                //document.getElementById("SOL5").innerHTML = Sol[5];
+
+
+                scene = "\\(\\"+Sol[1]+"\\)"
+                MathJax.Hub.Queue(["Typeset",MathJax.Hub,scene])
+
+
+                var t = Graph5(p,q)
+
+
+
+   function Graph5(p,q) {
+
+     JXG.JSXGraph.freeBoard(board);
+     board = JXG.JSXGraph.initBoard('jxgbox', {boundingbox: [-12, 12, 12, -12], axis: true});
+
+     var p1 = board.create('point', [a, b]);
+     var p1 = board.create('point', [s3, s1]);
+     var l1 = board.create('line', [[a, 0], [0, b]]);
+     var l2 = board.create('line', [[b, 0], [0, a]]);
+     var l3 = board.create('line', [[a, b], [s3, s1]]);
+     var tp = board.create('tapemeasure', [[0, 0], [4, 2]], {name:'dist'});
+
+}
+
+}
+
+        </script>
+
+</html>

@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html>
+
+<meta charset="utf-8";>
+<link rel="stylesheet" href="estilos.css" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="alternate" title="Pozolería RSS" type="application/rss+xml" href="/feed.rss" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<style>
+p {font-size: 120%;}
+</style>
+
+<title>Geometría Análitica</title> <link rel="shortcut icon" href="file:///C:/Users/76172/Pictures/logo.png"/>
+
+<script type="text/javascrip" src="MathJax/MathJax.js"></script>
+<script type= "text/javascript"
+src= "http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" >
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  "HTML-CSS": { linebreaks: { automatic: true } },
+  SVG: { linebreaks: { automatic: true } },
+   MathML: {
+     extensions: ["mml3.js"]
+  }
+});
+MathJax.Hub.Config({
+    jax: ["input/TeX","output/HTML-CSS"],
+    displayAlign: "left"
+});
+
+
+
+MathJax.Hub.Config({
+"HTML-CSS": {
+  imageFont: null
+}
+});
+
+</script>
+
+<!-- Tell the browser to be responsive to screen width -->
+<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+<!-- Bootstrap 3.3.5 -->
+<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+<!-- Ionicons -->
+<link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+<!-- Theme style -->
+<link rel="stylesheet" href="dist/css/AdminLTE.min.css">
+<!-- AdminLTE Skins. Choose a skin from the css/skins
+     folder instead of downloading all of them to reduce the load. -->
+<link rel="stylesheet" href="dist/css/skins/_all-skins.min.css">
+<!-- iCheck -->
+<link rel="stylesheet" href="plugins/iCheck/flat/blue.css">
+<!-- Morris chart -->
+<link rel="stylesheet" href="plugins/morris/morris.css">
+<!-- jvectormap -->
+<link rel="stylesheet" href="plugins/jvectormap/jquery-jvectormap-1.2.2.css">
+<!-- Date Picker -->
+<link rel="stylesheet" href="plugins/datepicker/datepicker3.css">
+<!-- Daterange picker -->
+<link rel="stylesheet" href="plugins/daterangepicker/daterangepicker-bs3.css">
+<!-- bootstrap wysihtml5 - text editor -->
+<link rel="stylesheet" href="plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
+
+<link rel="stylesheet" href="bootstrap/css/css/estilos.css">
+
+<!-- WIRIS EDITOR-->
+
+<script src="http://www.wiris.net/demo/editor/editor"></script>
+<script>
+    var editor;
+
+    window.onload = function () {
+      editor = com.wiris.jsEditor.JsEditor.newInstance({'language': 'en', 'toolbar': '<toolbar ref="quizzes"/>'});
+      editor.insertInto(document.getElementById('editor'));
+
+    }
+
+    function insertar(){
+       var valor = editor.getMathML();
+        $('#formula').html(valor);
+        var x= 3*2;
+       $('#formula').html("\\[ +\\frac{-b\\pm\\sqrt{b^"+x+"-4ac}}{2a} \\]");
+       $('#formula').html("\\[ +\\frac{2}{3}ax^2 \\]");
+
+           MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
+
+        console.log(valor);
+      console.log($('#formula').html());
+    }
+
+  function obtener(){
+      var v = $('#formula').html()
+       editor.setMathML(v);
+       console.log(v);
+  }
+
+</script>
+<!-- Graficos-->
+
+
+<link rel="stylesheet" type="text/css" href="JSXGraph/jsxgraph.css" />
+<script type="text/javascript" src="JSXGraph/jsxgraphcore.js"></script>
+<link rel="stylesheet" type="text/css" href="http://jsxgraph.uni-bayreuth.de/distrib/jsxgraph.css" />
+<script type="text/javascript" src="http://jsxgraph.uni-bayreuth.de/distrib/jsxgraphcore.js"></script>
+
+
+<title>Algebra</title>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+<script type="text/javascript" async
+src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body><font color="blue">
+
+
+  <div style="background: none repeat scroll 0 0 	#98FB98;
+    border: 1px solid #A67D3D;
+    border-radius: 6px 6px 6px 6px;
+    top:0px;
+    left: auto;
+    margin-left: left;
+    padding: 1px 0px 1px 1px;
+    position: fixed;
+    text-align: center;
+    width: 100%;
+    height:150px;
+    z-index: 1;">
+    <h3 ><font color="blue">Problemas de Geometría Analítica</font><br> <font color= "black"> Grupo14_15</font></br> </h3>
+    <h4><font color="black"><marquee> Raymundo Silvestre Gonzalez Contreras </marquee></h4>
+    <h5>
+  <button  type = "button" onclick="vaciar(1)"><font color= "blue"><marquee> Ejemplos resueltos </marquee></font></button>
+    </h5>
+
+
+
+  </div>
+
+  <svg height="150" width="500">
+  <line x1="0" y1="0" x2="0" y2="70" style="stroke:rgb(255,0,0);stroke-width:2" />
+  Sorry, your browser does not support inline SVG.
+  </svg>
+
+  <Div>
+
+
+  </head>
+
+  <body><font color="blue">
+  <style>
+      table, th, td { border: 1px solid blue;
+                      border-collapse: collapse;}
+      th,td { padding: 5px; }
+
+      table {
+             width: 20%;}
+             th{heigth: 50px;}
+
+      </style>
+
+        <p ></p>
+
+        <table  style = "width: 100%" border ="2" cellspacing = "2" align="lefth">
+          <col width="10%">
+          <col width="90%">
+         <tr>
+            <td colspan="2"><p>Dibujar una figura.<br><br>
+            Demostrar que   la   recta   4x + 3y - 40   = O    es   tangente   al   círculo cuyo radio es 5   y cuyo centro es el punto   C (3,1)  Hallar las coordenadas del punto de tangencia.</p></td>
+         </tr>
+         <tr>
+            <td colspan="2"><p <p align="lefth" style="font:italic bold 12px Georgia,serif; color: black">Herramienta<br><br><p>Si una recta tiene como pendiente m, otra recta perpendicular a ella tiene pendiente \[m´ = - \frac{1}{m} \] </p>
+             <p>TEOREMA
+La recta que pasa por el punto dado P1 (x1, y1) y tiene la pendiente dada m, tiene por ecuación
+y - y1 = m(x - x1) </p>TEOREMA <br>la longitud de la perpendicular bajada del punto P(x1,y1) a la recta <br>l : Ax+By+C = 0 es: \[ d = \frac{Ax1+By1+C}{ \sqrt{A^2+B^2}} \]</p></td>
+         </tr>
+
+         <tr>
+            <td colspan="2" ><p id="SOL1" style="font-size:90%; color: red" align="center">Click a ejemplos resueltos</p></td>
+         </tr>
+
+         <tr>
+            <td colspan="2" ><p id="SOL2" style="font-size:90%; color: brown" align="center">Click a ejemplos resueltos</p></td>
+         </tr>
+         <tr>
+
+         </tr>
+
+</table>
+
+
+<div id="jxgbox" class="jxgbox" style="width:500px; height:500px;"></div>
+
+<script type="text/javascript">
+
+var board = JXG.JSXGraph.initBoard('jxgbox', {originX: 250, originY: 450, unitX: 50, unitY: 20, axis:true});
+var dataArr = [4, 1.2, 3, NaN, 5, 4, 1.54, function () { return 4; }];
+
+
+
+        function vaciar(x)  //
+        {
+//alert("ooo")
+            if (x == 1) { //Módulo2
+//alert("entre a funcion");
+                //var M1 = document.getElementById("nivel").value;
+                var M1=1
+                var C = Grupo1_1(M1);
+//alert("C    "+C)
+            }
+        }
+
+var Sol = [];
+
+function Grupo1_1(M1){
+
+
+
+
+
+                var   A,B,p,q, r,s, u, v, w, m,W, pas1,pas2,pas3,pas;
+                  W = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+                  s1=40/3
+
+
+
+                pas = "$$ Soluci\\acute{o}n  $$"
+               pas1 = "$$ Sea \\ 4x + 3y - 40 = 0 \\ la \\ ecuación \\ de \\ la \\ recta \\ l  \\ y \\ C(3,1) \\ el \\ centro \\ de \\ una \\ circunferencia \\ de \\ radio r = 5 $$"
+               pas2 = "$$ bastara \\ con  \\ probar \\ que \\ la \\ distancia \\ de \\ l \\ a \\ C \\ = r :  $$"
+               pas3 = "$$ d = | \\ \\frac{4(3)+(3)(1)-40}{\\sqrt{"+"(4)^2+(3)^2"+"}} | $$"
+               pas4 = "$$ d = \\ \\frac{-25}{\\sqrt{"+"25"+"}} \\ = \\  5 \\ = \\ r $$"
+               pas5 = "$$ Como \\ l \\ es \\ tangente \\ calculemos \\ su \\ terpendicular \\ que \\ pasa \\ por \\ C \\ para \\ hallar \\ el \\ punto \\ de \\ tangencia $$"
+               pas6 = "$$ Despejemos \\ y \\ en \\ l \\ para \\ encontrar \\ su \\ pendiente \\ y = \\frac{-(4x-40)}{3}$$"
+               pas7 = "$$ Observe \\ que \\ m = -\\frac{4}{3} \\ esto \\ implica \\ m´ = \\frac{3}{4} $$"
+               pas8 = "$$ La \\ ecuación \\ de \\ la \\ perpendicular \\ l´ \\ es \\ Y - 1 = \\frac{3}{4} (X - 3) \\\\ 4y - 3x + 5 = 0  $$"
+               pas9 = "$$ Para \\ hallar \\ el \\ punto \\ de \\ intersección \\ entre \\ l \\ y \\ l´ \\\\ despejemos \\ de \\ l \\ X = \\frac{-3y+40}{4} \\ y \\ sustituyamos \\ en \\ l´  $$"
+               pas10 = "$$ 4Y - 3(\\frac{-3y}{4}y + 10) + 5 = 0 \\\\ 4Y + \\frac{9}{4}Y - 30 + 5 = 0 \\\\ \\frac{16Y+9Y}{4} = 25 \\\\ 25Y = 100 \\\\ Y = 4  $$"
+               pas11 = "$$ Ahora \\ sustituyamos \\ Y = 4 \\ en \\ X = \\frac{-3y+40}{4} \\\\ X = \\frac{-3(4)+40}{4} \\\\ X = \\frac{28}{4} = 7  $$"
+               pas12 = "$$ El \\ punto \\ de \\ tangencia \\ es \\ P(7,4) $$"
+
+               Sol[1] = pas+pas1+pas2+pas3+pas4+pas5+pas6+pas7+pas8+pas9+pas10+pas11+pas12
+
+
+               Sol[2] = ""
+//alert("33333333333333333")
+
+
+                document.getElementById("SOL1").innerHTML = Sol[1];
+                document.getElementById("SOL2").innerHTML = Sol[2];
+                //document.getElementById("SOL3").innerHTML = Sol[3];
+                //document.getElementById("SOL4").innerHTML = Sol[4];
+                //document.getElementById("SOL5").innerHTML = Sol[5];
+
+
+                scene = "\\(\\"+Sol[1]+"\\)"
+                MathJax.Hub.Queue(["Typeset",MathJax.Hub,scene])
+                var t = Graph5(p,q)
+
+
+
+   function Graph5(p,q) {
+
+     JXG.JSXGraph.freeBoard(board);
+     board = JXG.JSXGraph.initBoard('jxgbox', {boundingbox: [-12, 12, 12, -12], axis: true});
+
+     var p1 = board.create('point', [3, 1]);
+     var p2 = board.create('point', [7, 4]);
+     var c1 = board.create('circle', [p1, p2]);
+     var l2 = board.create('arrow', [p1, p2]);
+
+     var l1 = board.create('line', [[0, s1], [10, 0]]);
+     var tp = board.create('tapemeasure', [[0, 0], [4, 2]], {name:'dist'});
+
+}
+
+}
+
+        </script>
+
+</html>

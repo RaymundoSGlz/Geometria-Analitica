@@ -1,0 +1,960 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset=utf-8>
+
+<!-- Based on http://jsxgraph.uni-bayreuth.de/wiki/index.php/Even_simpler_function_plotter -->
+
+<head>
+    <link rel="stylesheet" type="text/css" href="http://jsxgraph.uni-bayreuth.de/distrib/jsxgraph.css" />
+    <script type="text/javascript" src="http://jsxgraph.uni-bayreuth.de/distrib/jsxgraphcore.js"></script>
+    <h4 align="center">  <p>Campo vectorial de la derivada de una función.</p>                <p1>Raymundo Silvestre Gonzalez Contreras</p1></h4>
+</head>
+
+<body>
+
+</body>
+</html>
+
+<body>
+  <font color="black">
+  <button color="green">
+<div id="box" class="jxgbox" style="width:550px; height:400px;"></div>
+
+
+<style>
+      table, th, td { border: 5px solid gray;
+                      border-collapse: collapse;}
+      th,td { padding: 5px; }
+
+      table {
+             width: 20%;}
+             th{heigth: 50px;}
+
+</style>
+
+
+
+<br clear=all>
+<div id="debug" style="display:block;"></div>
+
+<table  style = "width: 30%" border ="2" cellspacing = "2" align="lefth">
+          <col width="90%">
+       <tr>
+         <td>
+        <lefth>
+         <input id ="input1" type="text"  value="">
+               <input type="button" value="graficar" onClick="plotter()">
+               <input type="button" value="limpia-pantalla" onClick="clearAll()"><p>Click a campo, despues gráfica la función si así deseas</p>
+       </lefth>
+       </td>
+     </tr>
+   </table>
+     <table  style = "width: 50%" border ="2" cellspacing = "2" align="rigtht">
+               <col width="90%">
+     <tr>
+                 <td>
+               <input type="button" value="sen(x)" onClick="sin()">
+               <input type="button" value="Campo" onClick="s1()">
+             </td>
+                 <td>
+               <input type="button" value="cos(x)" onClick="cos()">
+               <input type="button" value="Campo" onClick="s2()">
+             </td>
+                 <td>
+               <input type="button" value="tan(x)" onClick="tan()">
+               <input type="button" value="Campo" onClick="s3()">
+             </td>
+                 <td>
+               <input type="button" value="cot(x)" onClick="cot()">
+               <input type="button" value="Campo" onClick="s4()">
+             </td>
+                 <td>
+               <input type="button" value="sec(x)" onClick="sec()">
+               <input type="button" value="Campo" onClick="s5()">
+             </td>
+                 <td>
+               <input type="button" value="csc(x)" onClick="csc()">
+               <input type="button" value="Campo" onClick="s6()">
+             </td>
+                 <td>
+               <input type="button" value="arcsen(x)" onClick="arcsin()">
+               <input type="button" value="Campo" onClick="s7()">
+             </td>
+                 <td>
+               <input type="button" value="arccos(x)" onClick="arccos()">
+               <input type="button" value="Campo" onClick="s8()">
+             </td>
+             <td>
+           <input type="button" value="e^(x)" onClick="e()">
+           <input type="button" value="Campo" onClick="s9()">
+         </td>
+             </tr>
+             <tr>
+                 <td>
+               <input type="button" value="arctan(x)" onClick="arctan()">
+               <input type="button" value="Campo" onClick="s10()">
+             </td>
+                 <td>
+               <input type="button" value="arccot(x)" onClick="arccot()">
+               <input type="button" value="Campo" onClick="s11()">
+             </td>
+                 <td>
+               <input type="button" value="arcsec(x)" onClick="arcsec()">
+               <input type="button" value="Campo" onClick="s12()">
+             </td>
+                 <td>
+               <input type="button" value="arccsc(x)" onClick="arccsc()">
+               <input type="button" value="Campo" onClick="s13()">
+             </td>
+                 <td>
+               <input type="button" value="senh(x)" onClick="senh()">
+               <input type="button" value="Campo" onClick="s14()">
+             </td>
+                 <td>
+               <input type="button" value="cosh(x)" onClick="cosh()">
+               <input type="button" value="Campo" onClick="s15()">
+             </td>
+                 <td>
+               <input type="button" value="tanh(x)" onClick="tanh()">
+               <input type="button" value="Campo" onClick="s16()">
+             </td>
+                 <td>
+               <input type="button" value="coth(x)" onClick="coth()">
+               <input type="button" value="Campo" onClick="s17()">
+             </td>
+                 <td>
+               <input type="button" value="sech(x)" onClick="sech()">
+               <input type="button" value="Campo" onClick="s18()">
+             </td>
+             </tr>
+             <tr>
+               <td>
+             <input type="button" value="csch(x)" onClick="csch()">
+             <input type="button" value="Campo" onClick="s19()">
+           </td>
+               <td>
+             <input type="button" value="arcsenh(x)" onClick="asenh()">
+             <input type="button" value="Campo" onClick="s20()">
+           </td>
+                 <td>
+               <input type="button" value="arccosh(x)" onClick="acosh()">
+               <input type="button" value="Campo" onClick="s21()">
+             </td>
+                 <td>
+               <input type="button" value="arctanh(x)" onClick="atanh()">
+               <input type="button" value="Campo" onClick="s22()">
+             </td>
+                 <td>
+               <input type="button" value="arccoth(x)" onClick="acoth()">
+               <input type="button" value="Campo" onClick="s23()">
+             </td>
+                 <td>
+               <input type="button" value="arcsech(x)" onClick="asech()">
+               <input type="button" value="Campo" onClick="s24()">
+             </td>
+                 <td>
+               <input type="button" value="arccsch(x)" onClick="acsch()">
+               <input type="button" value="Campo" onClick="s25()">
+             </td>
+                 <td>
+               <input type="button" value="log(x)" onClick="log()">
+               <input type="button" value="Campo" onClick="s26()">
+             </td>
+             <td>
+           <input type="button" value="|x|" onClick="f1()">
+           <input type="button" value="Campo" onClick="s27()">
+         </td>
+    </tr>
+
+
+
+</table>
+
+<head>
+          <link rel="stylesheet" type="text/css" href="../distrib/jsxgraph.css" />
+          <script type="text/javascript" src="../src/loadjsxgraph.js"></script>
+</head>
+ <body>
+
+
+<script type="text/javascript">
+var board = JXG.JSXGraph.initBoard('box', {boundingbox:[-5,8,8,-5], axis:true});
+
+var f, curve;
+
+function recta(){
+  var  a = document.getElementById('input1').value;
+  document.getElementById("input1").value = "7*x+3";
+  //document.getElementById("Propuesto").innerHTML = "$$"+ProP+"$$";// var e1 = document.getElementById("input").value
+  var b = document.getElementById('input1').value;
+
+}
+function polinomio(){
+  var  a = document.getElementById('input1').value;
+  document.getElementById("input1").value = "-9*x^3+4*x^2-6*x-4";
+  //document.getElementById("Propuesto").innerHTML = "$$"+ProP+"$$";// var e1 = document.getElementById("input").value
+  var b = document.getElementById('input1').value;
+
+}
+function sin(){
+  var  a = document.getElementById('input1').value;
+  document.getElementById("input1").value = "sin(x)";
+  //document.getElementById("Propuesto").innerHTML = "$$"+ProP+"$$";// var e1 = document.getElementById("input").value
+  var b = document.getElementById('input1').value;
+
+}
+function cos(){
+  var  a = document.getElementById('input1').value;
+  document.getElementById("input1").value = "cos(x)";
+  //document.getElementById("Propuesto").innerHTML = "$$"+ProP+"$$";// var e1 = document.getElementById("input").value
+  var b = document.getElementById('input1').value;
+
+}
+function tan(){
+  var  a = document.getElementById('input1').value;
+  document.getElementById("input1").value = "tan(x)";
+  //document.getElementById("Propuesto").innerHTML = "$$"+ProP+"$$";// var e1 = document.getElementById("input").value
+  var b = document.getElementById('input1').value;
+
+}
+function cot(){
+  var  a = document.getElementById('input1').value;
+  document.getElementById("input1").value = "1/tan(x)";
+  //document.getElementById("Propuesto").innerHTML = "$$"+ProP+"$$";// var e1 = document.getElementById("input").value
+  var b = document.getElementById('input1').value;
+
+}
+function sec(){
+  var  a = document.getElementById('input1').value;
+  document.getElementById("input1").value = "1/cos(x)";
+  //document.getElementById("Propuesto").innerHTML = "$$"+ProP+"$$";// var e1 = document.getElementById("input").value
+  var b = document.getElementById('input1').value;
+
+}
+function csc(){
+  var  a = document.getElementById('input1').value;
+  document.getElementById("input1").value = "1/sin(x)";
+  //document.getElementById("Propuesto").innerHTML = "$$"+ProP+"$$";// var e1 = document.getElementById("input").value
+  var b = document.getElementById('input1').value;
+
+}
+function arcsin(){
+  var  a = document.getElementById('input1').value;
+  document.getElementById("input1").value = "asin(x)";
+  //document.getElementById("Propuesto").innerHTML = "$$"+ProP+"$$";// var e1 = document.getElementById("input").value
+  var b = document.getElementById('input1').value;
+
+}
+function arccos(){
+  var  a = document.getElementById('input1').value;
+  document.getElementById("input1").value = "acos(x)";
+  //document.getElementById("Propuesto").innerHTML = "$$"+ProP+"$$";// var e1 = document.getElementById("input").value
+  var b = document.getElementById('input1').value;
+
+}
+function arctan(){
+  var  a = document.getElementById('input1').value;
+  document.getElementById("input1").value = "atan(x)";
+  //document.getElementById("Propuesto").innerHTML = "$$"+ProP+"$$";// var e1 = document.getElementById("input").value
+  var b = document.getElementById('input1').value;
+
+}
+function senh(){
+  var  a = document.getElementById('input1').value;
+  document.getElementById("input1").value = "sinh(x)";
+  //document.getElementById("Propuesto").innerHTML = "$$"+ProP+"$$";// var e1 = document.getElementById("input").value
+  var b = document.getElementById('input1').value;
+
+}
+function cosh(){
+  var  a = document.getElementById('input1').value;
+  document.getElementById("input1").value = "cosh(x)";
+  //document.getElementById("Propuesto").innerHTML = "$$"+ProP+"$$";// var e1 = document.getElementById("input").value
+  var b = document.getElementById('input1').value;
+
+}
+function tanh(){
+  var  a = document.getElementById('input1').value;
+  document.getElementById("input1").value = "tanh(x)";
+  //document.getElementById("Propuesto").innerHTML = "$$"+ProP+"$$";// var e1 = document.getElementById("input").value
+  var b = document.getElementById('input1').value;
+
+}
+function asenh(){
+  var  a = document.getElementById('input1').value;
+  document.getElementById("input1").value = "asinh(x)";
+  //document.getElementById("Propuesto").innerHTML = "$$"+ProP+"$$";// var e1 = document.getElementById("input").value
+  var b = document.getElementById('input1').value;
+
+}
+function acosh(){
+  var  a = document.getElementById('input1').value;
+  document.getElementById("input1").value = "acosh(x)";
+  //document.getElementById("Propuesto").innerHTML = "$$"+ProP+"$$";// var e1 = document.getElementById("input").value
+  var b = document.getElementById('input1').value;
+
+}
+function atanh(){
+  var  a = document.getElementById('input1').value;
+  document.getElementById("input1").value = "atanh(x)";
+  //document.getElementById("Propuesto").innerHTML = "$$"+ProP+"$$";// var e1 = document.getElementById("input").value
+  var b = document.getElementById('input1').value;
+
+}
+function log(){
+  var  a = document.getElementById('input1').value;
+  document.getElementById("input1").value = "log(x)";
+  //document.getElementById("Propuesto").innerHTML = "$$"+ProP+"$$";// var e1 = document.getElementById("input").value
+  var b = document.getElementById('input1').value;
+
+}
+function e(){
+  var  a = document.getElementById('input1').value;
+  document.getElementById("input1").value = "exp(x)";
+  //document.getElementById("Propuesto").innerHTML = "$$"+ProP+"$$";// var e1 = document.getElementById("input").value
+  var b = document.getElementById('input1').value;
+
+}
+function a(){
+  var  a = document.getElementById('input1').value;
+  document.getElementById("input1").value = "5^(x)";
+  //document.getElementById("Propuesto").innerHTML = "$$"+ProP+"$$";// var e1 = document.getElementById("input").value
+  var b = document.getElementById('input1').value;
+
+}
+function sqrt(){
+  var  a = document.getElementById('input1').value;
+  document.getElementById("input1").value = "sqrt(x)";
+  //document.getElementById("Propuesto").innerHTML = "$$"+ProP+"$$";// var e1 = document.getElementById("input").value
+  var b = document.getElementById('input1').value;
+  alert(" si deseas raíz n-seima, pulsa x^(1/n) y da valor a n ")
+
+}
+function x(){
+  var  a = document.getElementById('input1').value;
+  document.getElementById("input1").value = "x^(1/n)";
+  //document.getElementById("Propuesto").innerHTML = "$$"+ProP+"$$";// var e1 = document.getElementById("input").value
+  var b = document.getElementById('input1').value;
+
+}
+function x1(){
+  var  a = document.getElementById('input1').value;
+  document.getElementById("input1").value = "abs(x)";
+  //document.getElementById("Propuesto").innerHTML = "$$"+ProP+"$$";// var e1 = document.getElementById("input").value
+  var b = document.getElementById('input1').value;
+
+}
+function arccot(){
+  var  a = document.getElementById('input1').value;
+  document.getElementById("input1").value = "atan(1/x)";
+  //document.getElementById("Propuesto").innerHTML = "$$"+ProP+"$$";// var e1 = document.getElementById("input").value
+  var b = document.getElementById('input1').value;
+
+}
+function arcsec(){
+  var  a = document.getElementById('input1').value;
+  document.getElementById("input1").value = "acos(1/x)";
+  //document.getElementById("Propuesto").innerHTML = "$$"+ProP+"$$";// var e1 = document.getElementById("input").value
+  var b = document.getElementById('input1').value;
+
+}
+function arccsc(){
+  var  a = document.getElementById('input1').value;
+  document.getElementById("input1").value = "asin(1/x)";
+  //document.getElementById("Propuesto").innerHTML = "$$"+ProP+"$$";// var e1 = document.getElementById("input").value
+  var b = document.getElementById('input1').value;
+
+}
+function coth(){
+  var  a = document.getElementById('input1').value;
+  document.getElementById("input1").value = "1/tanh(x)";
+  //document.getElementById("Propuesto").innerHTML = "$$"+ProP+"$$";// var e1 = document.getElementById("input").value
+  var b = document.getElementById('input1').value;
+
+}
+function sech(){
+  var  a = document.getElementById('input1').value;
+  document.getElementById("input1").value = "1/cosh(x)";
+  //document.getElementById("Propuesto").innerHTML = "$$"+ProP+"$$";// var e1 = document.getElementById("input").value
+  var b = document.getElementById('input1').value;
+
+}
+function csch(){
+  var  a = document.getElementById('input1').value;
+  document.getElementById("input1").value = "1/sinh(x)";
+  //document.getElementById("Propuesto").innerHTML = "$$"+ProP+"$$";// var e1 = document.getElementById("input").value
+  var b = document.getElementById('input1').value;
+
+}
+function acoth(){
+  var  a = document.getElementById('input1').value;
+  document.getElementById("input1").value = "atanh(1/x)";
+  //document.getElementById("Propuesto").innerHTML = "$$"+ProP+"$$";// var e1 = document.getElementById("input").value
+  var b = document.getElementById('input1').value;
+
+}
+function asech(){
+  var  a = document.getElementById('input1').value;
+  document.getElementById("input1").value = "acosh(1/x)";
+  //document.getElementById("Propuesto").innerHTML = "$$"+ProP+"$$";// var e1 = document.getElementById("input").value
+  var b = document.getElementById('input1').value;
+
+}
+function acsch(){
+  var  a = document.getElementById('input1').value;
+  document.getElementById("input1").value = "1/asinh(x)";
+  //document.getElementById("Propuesto").innerHTML = "$$"+ProP+"$$";// var e1 = document.getElementById("input").value
+  var b = document.getElementById('input1').value;
+
+}
+function f1(){
+  var  a = document.getElementById('input1').value;
+  document.getElementById("input1").value = "abs(x)";
+  //document.getElementById("Propuesto").innerHTML = "$$"+ProP+"$$";// var e1 = document.getElementById("input").value
+  var b = document.getElementById('input1').value;
+
+}
+function s1() {
+  JXG.JSXGraph.freeBoard(board);
+  board = JXG.JSXGraph.initBoard('box', {boundingbox: [-20, 20, 20, -20], axis: true});
+var P = [];
+var L = [];
+var col = 'red'
+//for (i=1; i<100; i++)
+//{ P[i] = board.create('point', [i,i+1],{size: 1, strokeColor:col, fillColor:col}); }
+  for (j=-10; j<=10; j=j+.5)
+  {    for (i=-10; i<10; i=i+.5)
+      {   L[i] = board.create('arrow', [[j,i],[j+.5,i+.5*Math.cos(j)]],{size: 0,strokeColor:col});
+      }
+  }
+
+
+
+      }
+      function s2() {
+        JXG.JSXGraph.freeBoard(board);
+        board = JXG.JSXGraph.initBoard('box', {boundingbox: [-20, 20, 20, -20], axis: true});
+      var P = [];
+      var L = [];
+      var col = 'red'
+      //for (i=1; i<100; i++)
+      //{ P[i] = board.create('point', [i,i+1],{size: 1, strokeColor:col, fillColor:col}); }
+        for (j=-10; j<=10; j=j+.5)
+        {    for (i=-10; i<10; i=i+.5)
+            {   L[i] = board.create('arrow', [[j,i],[j+.5,i-.5*Math.sin(j)]],{size: 0,strokeColor:col});
+            }
+        }
+
+
+
+            }
+            function s3() {
+              JXG.JSXGraph.freeBoard(board);
+              board = JXG.JSXGraph.initBoard('box', {boundingbox: [-20, 20, 20, -20], axis: true});
+            var P = [];
+            var L = [];
+            var col = 'red'
+            //for (i=1; i<100; i++)
+            //{ P[i] = board.create('point', [i,i+1],{size: 1, strokeColor:col, fillColor:col}); }
+              for (j=-10; j<=10; j=j+.5)
+              {    for (i=-10; i<10; i=i+.5)
+                  {   L[i] = board.create('arrow', [[j,i],[j+.5,i+.5/(Math.cos(j)*Math.cos(j))]],{size: 0,strokeColor:col});
+                  }
+              }
+
+
+
+                  }
+                  function s4() {
+                    JXG.JSXGraph.freeBoard(board);
+                    board = JXG.JSXGraph.initBoard('box', {boundingbox: [-20, 20, 20, -20], axis: true});
+                  var P = [];
+                  var L = [];
+                  var col = 'red'
+                  //for (i=1; i<100; i++)
+                  //{ P[i] = board.create('point', [i,i+1],{size: 1, strokeColor:col, fillColor:col}); }
+                    for (j=-10; j<=10; j=j+.5)
+                    {    for (i=-10; i<10; i=i+.5)
+                        {   L[i] = board.create('arrow', [[j,i],[j+.5,i-.5/(Math.sin(j)*Math.sin(j))]],{size: 0,strokeColor:col});
+                        }
+                    }
+
+
+
+                        }
+      // BUG:
+      function s5() {
+        JXG.JSXGraph.freeBoard(board);
+        board = JXG.JSXGraph.initBoard('box', {boundingbox: [-20, 20, 20, -20], axis: true});
+      var P = [];
+      var L = [];
+      var col = 'red'
+      //for (i=1; i<100; i++)
+      //{ P[i] = board.create('point', [i,i+1],{size: 1, strokeColor:col, fillColor:col}); }
+        for (j=-10; j<=10; j=j+.5)
+        {    for (i=-10; i<10; i=i+.5)
+            {   L[i] = board.create('arrow', [[j,i],[j+.5,i+.5*Math.tan(j)/Math.cos(j)]],{size: 0,strokeColor:col});
+            }
+        }
+
+
+
+            }
+      // BUG:
+      function s6() {
+        JXG.JSXGraph.freeBoard(board);
+        board = JXG.JSXGraph.initBoard('box', {boundingbox: [-20, 20, 20, -20], axis: true});
+      var P = [];
+      var L = [];
+      var col = 'red'
+      //for (i=1; i<100; i++)
+      //{ P[i] = board.create('point', [i,i+1],{size: 1, strokeColor:col, fillColor:col}); }
+        for (j=-10; j<=10; j=j+.5)
+        {    for (i=-10; i<10; i=i+.5)
+            {   L[i] = board.create('arrow', [[j,i],[j+.5,i-.5/(Math.sin(j)*Math.tan(j))]],{size: 0,strokeColor:col});
+            }
+        }
+
+
+
+            }
+      // BUG:
+      function s7() {
+        JXG.JSXGraph.freeBoard(board);
+        board = JXG.JSXGraph.initBoard('box', {boundingbox: [-20, 20, 20, -20], axis: true});
+      var P = [];
+      var L = [];
+      var col = 'red'
+      //for (i=1; i<100; i++)
+      //{ P[i] = board.create('point', [i,i+1],{size: 1, strokeColor:col, fillColor:col}); }
+        for (j=-10; j<=10; j=j+.25)
+        {    for (i=-10; i<10; i=i+.25)
+            {   L[i] = board.create('arrow', [[j,i],[j+.25,i+.25/Math.sqrt(1-(j*j))]],{size: 0,strokeColor:col});
+            }
+        }
+
+
+
+            }
+      // BUG:
+      function s8() {
+        JXG.JSXGraph.freeBoard(board);
+        board = JXG.JSXGraph.initBoard('box', {boundingbox: [-20, 20, 20, -20], axis: true});
+      var P = [];
+      var L = [];
+      var col = 'red'
+      //for (i=1; i<100; i++)
+      //{ P[i] = board.create('point', [i,i+1],{size: 1, strokeColor:col, fillColor:col}); }
+        for (j=-10; j<=10; j=j+.25)
+        {    for (i=-10; i<10; i=i+.25)
+            {   L[i] = board.create('arrow', [[j,i],[j+.25,i-.25/Math.sqrt(1-(j*j))]],{size: 0,strokeColor:col});
+            }
+        }
+
+
+
+            }
+      // BUG:
+      function s9() {
+        JXG.JSXGraph.freeBoard(board);
+        board = JXG.JSXGraph.initBoard('box', {boundingbox: [-20, 20, 20, -20], axis: true});
+      var P = [];
+      var L = [];
+      var col = 'red'
+      //for (i=1; i<100; i++)
+      //{ P[i] = board.create('point', [i,i+1],{size: 1, strokeColor:col, fillColor:col}); }
+        for (j=-10; j<=10; j=j+.5)
+        {    for (i=-10; i<10; i=i+.5)
+            {   L[i] = board.create('arrow', [[j,i],[j+.5,i+.5*Math.exp(j)]],{size: 0,strokeColor:col});
+            }
+        }
+
+
+
+            }
+      // BUG:
+      function s10() {
+        JXG.JSXGraph.freeBoard(board);
+        board = JXG.JSXGraph.initBoard('box', {boundingbox: [-20, 20, 20, -20], axis: true});
+      var P = [];
+      var L = [];
+      var col = 'red'
+      //for (i=1; i<100; i++)
+      //{ P[i] = board.create('point', [i,i+1],{size: 1, strokeColor:col, fillColor:col}); }
+        for (j=-10; j<=10; j=j+.5)
+        {    for (i=-10; i<10; i=i+.5)
+            {   L[i] = board.create('arrow', [[j,i],[j+.5,i+.5/((j*j)+1)]],{size: 0,strokeColor:col});
+            }
+        }
+
+
+
+            }
+      // BUG:
+      function s11() {
+        JXG.JSXGraph.freeBoard(board);
+        board = JXG.JSXGraph.initBoard('box', {boundingbox: [-20, 20, 20, -20], axis: true});
+      var P = [];
+      var L = [];
+      var col = 'red'
+      //for (i=1; i<100; i++)
+      //{ P[i] = board.create('point', [i,i+1],{size: 1, strokeColor:col, fillColor:col}); }
+        for (j=-10; j<=10; j=j+.5)
+        {    for (i=-10; i<10; i=i+.5)
+            {   L[i] = board.create('arrow', [[j,i],[j+.5,i-.5/((j*j)+1)]],{size: 0,strokeColor:col});
+            }
+        }
+
+
+
+            }
+      // BUG:
+      function s12() {
+        JXG.JSXGraph.freeBoard(board);
+        board = JXG.JSXGraph.initBoard('box', {boundingbox: [-20, 20, 20, -20], axis: true});
+      var P = [];
+      var L = [];
+      var col = 'red'
+      //for (i=1; i<100; i++)
+      //{ P[i] = board.create('point', [i,i+1],{size: 1, strokeColor:col, fillColor:col}); }
+        for (j=-10; j<=10; j=j+.5)
+        {    for (i=-10; i<10; i=i+.5)
+            {   L[i] = board.create('arrow', [[j,i],[j+.5,i+.5/((Math.sqrt(1-(1/(j*j))))*(j*j))]],{size: 0,strokeColor:col});
+            }
+        }
+
+
+
+            }
+      // BUG:
+      function s13() {
+        JXG.JSXGraph.freeBoard(board);
+        board = JXG.JSXGraph.initBoard('box', {boundingbox: [-20, 20, 20, -20], axis: true});
+      var P = [];
+      var L = [];
+      var col = 'red'
+      //for (i=1; i<100; i++)
+      //{ P[i] = board.create('point', [i,i+1],{size: 1, strokeColor:col, fillColor:col}); }
+        for (j=-10; j<=10; j=j+.5)
+        {    for (i=-10; i<10; i=i+.5)
+            {   L[i] = board.create('arrow', [[j,i],[j+.5,i-.5/((Math.sqrt(1-(1/(j*j))))*(j*j))]],{size: 0,strokeColor:col});
+            }
+        }
+
+
+
+            }
+      // BUG:
+      function s14() {
+        JXG.JSXGraph.freeBoard(board);
+        board = JXG.JSXGraph.initBoard('box', {boundingbox: [-20, 20, 20, -20], axis: true});
+      var P = [];
+      var L = [];
+      var col = 'red'
+      //for (i=1; i<100; i++)
+      //{ P[i] = board.create('point', [i,i+1],{size: 1, strokeColor:col, fillColor:col}); }
+        for (j=-10; j<=10; j=j+.5)
+        {    for (i=-10; i<10; i=i+.5)
+            {   L[i] = board.create('arrow', [[j,i],[j+.5,i+.5*Math.cosh(j)]],{size: 0,strokeColor:col});
+            }
+        }
+
+
+
+            }
+      // BUG:
+      function s15() {
+        JXG.JSXGraph.freeBoard(board);
+        board = JXG.JSXGraph.initBoard('box', {boundingbox: [-20, 20, 20, -20], axis: true});
+      var P = [];
+      var L = [];
+      var col = 'red'
+      //for (i=1; i<100; i++)
+      //{ P[i] = board.create('point', [i,i+1],{size: 1, strokeColor:col, fillColor:col}); }
+        for (j=-10; j<=10; j=j+.5)
+        {    for (i=-10; i<10; i=i+.5)
+            {   L[i] = board.create('arrow', [[j,i],[j+.5,i+.5*Math.sinh(j)]],{size: 0,strokeColor:col});
+            }
+        }
+
+
+
+            }
+      // BUG:
+      function s16() {
+        JXG.JSXGraph.freeBoard(board);
+        board = JXG.JSXGraph.initBoard('box', {boundingbox: [-20, 20, 20, -20], axis: true});
+      var P = [];
+      var L = [];
+      var col = 'red'
+      //for (i=1; i<100; i++)
+      //{ P[i] = board.create('point', [i,i+1],{size: 1, strokeColor:col, fillColor:col}); }
+        for (j=-10; j<=10; j=j+.5)
+        {    for (i=-10; i<10; i=i+.5)
+            {   L[i] = board.create('arrow', [[j,i],[j+.5,i+.5/(Math.cosh(j)*Math.cosh(j))]],{size: 0,strokeColor:col});
+            }
+        }
+
+
+
+            }
+      // BUG:
+      function s17() {
+        JXG.JSXGraph.freeBoard(board);
+        board = JXG.JSXGraph.initBoard('box', {boundingbox: [-20, 20, 20, -20], axis: true});
+      var P = [];
+      var L = [];
+      var col = 'red'
+      //for (i=1; i<100; i++)
+      //{ P[i] = board.create('point', [i,i+1],{size: 1, strokeColor:col, fillColor:col}); }
+        for (j=-10; j<=10; j=j+.5)
+        {    for (i=-10; i<10; i=i+.5)
+            {   L[i] = board.create('arrow', [[j,i],[j+.5,i-.5/(Math.sinh(j)*Math.sinh(j))]],{size: 0,strokeColor:col});
+            }
+        }
+
+
+
+            }
+            function s18() {
+              JXG.JSXGraph.freeBoard(board);
+              board = JXG.JSXGraph.initBoard('box', {boundingbox: [-20, 20, 20, -20], axis: true});
+            var P = [];
+            var L = [];
+            var col = 'red'
+            //for (i=1; i<100; i++)
+            //{ P[i] = board.create('point', [i,i+1],{size: 1, strokeColor:col, fillColor:col}); }
+              for (j=-10; j<=10; j=j+.5)
+              {    for (i=-10; i<10; i=i+.5)
+                  {   L[i] = board.create('arrow', [[j,i],[j+.5,i-.5*Math.tanh(j)/Math.cosh(j)]],{size: 0,strokeColor:col});
+                  }
+              }
+
+
+
+                  }
+                  function s19() {
+                    JXG.JSXGraph.freeBoard(board);
+                    board = JXG.JSXGraph.initBoard('box', {boundingbox: [-20, 20, 20, -20], axis: true});
+                  var P = [];
+                  var L = [];
+                  var col = 'red'
+                  //for (i=1; i<100; i++)
+                  //{ P[i] = board.create('point', [i,i+1],{size: 1, strokeColor:col, fillColor:col}); }
+                    for (j=-10; j<=10; j=j+.5)
+                    {    for (i=-10; i<10; i=i+.5)
+                        {   L[i] = board.create('arrow', [[j,i],[j+.5,i-.5/(Math.tanh(j)*Math.sinh(j))]],{size: 0,strokeColor:col});
+                        }
+                    }
+
+
+
+                        }
+                        function s20() {
+                          JXG.JSXGraph.freeBoard(board);
+                          board = JXG.JSXGraph.initBoard('box', {boundingbox: [-20, 20, 20, -20], axis: true});
+                        var P = [];
+                        var L = [];
+                        var col = 'red'
+                        //for (i=1; i<100; i++)
+                        //{ P[i] = board.create('point', [i,i+1],{size: 1, strokeColor:col, fillColor:col}); }
+                          for (j=-10; j<=10; j=j+.5)
+                          {    for (i=-10; i<10; i=i+.5)
+                              {   L[i] = board.create('arrow', [[j,i],[j+.5,i+.5/Math.sqrt((j*j)+1)]],{size: 0,strokeColor:col});
+                              }
+                          }
+
+
+
+                              }
+            // BUG:
+            function s21() {
+              JXG.JSXGraph.freeBoard(board);
+              board = JXG.JSXGraph.initBoard('box', {boundingbox: [-20, 20, 20, -20], axis: true});
+            var P = [];
+            var L = [];
+            var col = 'red'
+            //for (i=1; i<100; i++)
+            //{ P[i] = board.create('point', [i,i+1],{size: 1, strokeColor:col, fillColor:col}); }
+              for (j=-10; j<=10; j=j+.5)
+              {    for (i=-10; i<10; i=i+.5)
+                  {   L[i] = board.create('arrow', [[j,i],[j+.5,i+.5/Math.sqrt((j*j)-1)]],{size: 0,strokeColor:col});
+                  }
+              }
+
+
+
+                  }
+            // BUG:
+            function s22() {
+              JXG.JSXGraph.freeBoard(board);
+              board = JXG.JSXGraph.initBoard('box', {boundingbox: [-20, 20, 20, -20], axis: true});
+            var P = [];
+            var L = [];
+            var col = 'red'
+            //for (i=1; i<100; i++)
+            //{ P[i] = board.create('point', [i,i+1],{size: 1, strokeColor:col, fillColor:col}); }
+              for (j=-10; j<=10; j=j+.5)
+              {    for (i=-10; i<10; i=i+.5)
+                  {   L[i] = board.create('arrow', [[j,i],[j+.5,i+.5/(1-(j*j))]],{size: 0,strokeColor:col});
+                  }
+              }
+
+
+
+                  }
+            // BUG:
+            function s23() {
+              JXG.JSXGraph.freeBoard(board);
+              board = JXG.JSXGraph.initBoard('box', {boundingbox: [-20, 20, 20, -20], axis: true});
+            var P = [];
+            var L = [];
+            var col = 'red'
+            //for (i=1; i<100; i++)
+            //{ P[i] = board.create('point', [i,i+1],{size: 1, strokeColor:col, fillColor:col}); }
+              for (j=-10; j<=10; j=j+.5)
+              {    for (i=-10; i<10; i=i+.5)
+                  {   L[i] = board.create('arrow', [[j,i],[j+.5,i+.5/(1-(j*j))]],{size: 0,strokeColor:col});
+                  }
+              }
+
+
+
+                  }
+            // BUG:
+            function s24() {
+              JXG.JSXGraph.freeBoard(board);
+              board = JXG.JSXGraph.initBoard('box', {boundingbox: [-20, 20, 20, -20], axis: true});
+            var P = [];
+            var L = [];
+            var col = 'red'
+            //for (i=1; i<100; i++)
+            //{ P[i] = board.create('point', [i,i+1],{size: 1, strokeColor:col, fillColor:col}); }
+              for (j=-10; j<=10; j=j+.5)
+              {    for (i=-10; i<10; i=i+.5)
+                  {   L[i] = board.create('arrow', [[j,i],[j+.5,i+.5*Math.sqrt((1-j)/j+1)/((j-1)*j)]],{size: 0,strokeColor:col});
+                  }
+              }
+
+
+
+                  }
+            // BUG:
+            function s25() {
+              JXG.JSXGraph.freeBoard(board);
+              board = JXG.JSXGraph.initBoard('box', {boundingbox: [-20, 20, 20, -20], axis: true});
+            var P = [];
+            var L = [];
+            var col = 'red'
+            //for (i=1; i<100; i++)
+            //{ P[i] = board.create('point', [i,i+1],{size: 1, strokeColor:col, fillColor:col}); }
+              for (j=-10; j<=10; j=j+.5)
+              {    for (i=-10; i<10; i=i+.5)
+                  {   L[i] = board.create('arrow', [[j,i],[j+.5,i-.5/((Math.sqrt((1/j)+1))*j)]],{size: 0,strokeColor:col});
+                  }
+              }
+
+
+
+                  }
+            // BUG:
+            function s26() {
+              JXG.JSXGraph.freeBoard(board);
+              board = JXG.JSXGraph.initBoard('box', {boundingbox: [-20, 20, 20, -20], axis: true});
+            var P = [];
+            var L = [];
+            var col = 'red'
+            //for (i=1; i<100; i++)
+            //{ P[i] = board.create('point', [i,i+1],{size: 1, strokeColor:col, fillColor:col}); }
+              for (j=-10; j<=10; j=j+.5)
+              {    for (i=-10; i<10; i=i+.5)
+                  {   L[i] = board.create('arrow', [[j,i],[j+.5,i+.5/(j)]],{size: 0,strokeColor:col});
+                  }
+              }
+
+
+
+                  }
+                  function s27() {
+                    JXG.JSXGraph.freeBoard(board);
+                    board = JXG.JSXGraph.initBoard('box', {boundingbox: [-20, 20, 20, -20], axis: true});
+                  var P = [];
+                  var L = [];
+                  var col = 'red'
+                  //for (i=1; i<100; i++)
+                  //{ P[i] = board.create('point', [i,i+1],{size: 1, strokeColor:col, fillColor:col}); }
+                    for (j=-10; j<=10; j=j+.5)
+                    {    for (i=-10; i<10; i=i+.5)
+                        {   L[i] = board.create('arrow', [[j,i],[j+.5,i+.5*(j)/Math.abs(j)]],{size: 0,strokeColor:col});
+                        }
+                    }
+
+
+
+                        }
+
+function plotter() {
+  //alert(" funcion  ")
+  var txtraw = document.getElementById('input1').value;
+            //   document.getElementById('input')
+  var txtrawTT = txtraw
+  //lert(" txttraw "+txtrawTT)
+var txt = JXG.GeonextParser.geonext2JS(txtrawTT);
+//alert(" txt "+txt)
+f = board.jc.snippet(txt, true, 'x', true);
+var curve = board.create('functiongraph',[f,
+    function(){
+        var c = new JXG.Coords(JXG.COORDS_BY_SCREEN,[0,0],board);
+        return c.usrCoords[1];
+    },
+    function(){
+        var c = new JXG.Coords(JXG.COORDS_BY_SCREEN,[board.canvasWidth,0],board);//canvas lienso
+        return c.usrCoords[1]; // control de coordenadas
+    }
+  ],{name:txtraw, withLabel:false,strokeColor: 'gray',strokeWidth:5})//grosor de la curva;
+var  text = board.create('text',
+    [Q.X(), Q.Y()+1,
+    function(){
+        if (P.X() == Q.X()){
+            return "FFFFFFFFFFFFF";;
+        } else {
+            var a = (P.Y()-Q.Y())/(P.X()-Q.X());
+            var b = P.Y()-a*P.X();
+            return " y= "+a.toFixed(5)+"x"+addSign(b.toFixed(5));
+        }
+    }]
+);
+}
+
+function clearAll() {
+    JXG.JSXGraph.freeBoard(board);
+    board = JXG.JSXGraph.initBoard('box', {boundingbox:[-5,8,8,-5], axis:true});
+    f = null;
+    curve = null;
+}
+
+
+function addTangent() {
+    if (JXG.isFunction(f)) {
+        board2.suspendUpdate();
+        var p = board2.create('glider',[-10,0,curve], {name:'arrastra me'});
+        board2.create('tangent',[p], {name:'drag xxxxxxxxxxxme'});
+        board2.unsuspendUpdate();
+    }
+}
+
+function addDerivative() {
+    if (JXG.isFunction(f)) {
+        board2.create('functiongraph',[JXG.Math.Numerics.D(f),
+                function(){
+                  var c = new JXG.Coords(JXG.COORDS_BY_SCREEN,[0,0],board);
+                  return c.usrCoords[1];
+                },
+                function(){
+                  var c = new JXG.Coords(JXG.COORDS_BY_SCREEN,[board2.canvasWidth,0],board);
+                  return c.usrCoords[1];
+                }], {dash:2});
+    }
+}</script>
+
+</html>
